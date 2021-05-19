@@ -17,7 +17,7 @@ export const Layout = (props) => {
   });
 
   return (
-    <div style={{ overflowX: "hidden" }}>
+    <div style={{ overflowX: "hidden", overflowY: "hidden" }}>
       <Toolbar className={styles.appBar}>
         <Grid container xs={12}>
           <Grid xs={1}></Grid>
