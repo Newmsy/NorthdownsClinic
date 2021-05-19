@@ -11,40 +11,124 @@ import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as ChevronRight } from "../Assets/chevron-right.svg";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { HashLink as Link } from "react-router-hash-link";
+import ScrollAnimation from "react-animate-on-scroll";
 
 export const Dermal = () => {
   const styles = useStyles();
   const textStyles = useTextStyles();
 
-  const [expanded, setExpanded] = React.useState(0);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(panel);
-  };
-
   return (
     <Grid container xs={12} justify={"center"}>
-      <Grid xs={8} item container className={styles.mainGrid} spacing={4}>
-        <Grid item xs={12}>
-          <p className={textStyles.blueTitle}>DERMAL FILLERS</p>
-          <img src="/dermal-filler-injections.jpg" />
-          <p className={textStyles.contentText}>
-            As your skin ages, it loses the collagen that helps shape and
-            support it. Natural lines and wrinkles deepen. Sun exposure,
-            smoking, air pollution and even stress can all age your appearance.
-            The face can also begin to lose volume giving sunken cheeks and a
-            ‘dragged down’ appearance.
-          </p>
-        </Grid>
-        <Grid item xs={10}>
-          {accordionDetails.map((detail, index) => (
-            <Accordions
-              title={detail.title}
-              body={detail.body}
-              panel={expanded}
-              setPanel={handleChange}
-              index={index}
+      <Grid xs={8} item container className={styles.mainGrid}>
+        <Grid item container xs={12}>
+          <Grid item xs={12} style={{ position: "relative", height: 100 }}>
+            <div
+              style={{
+                position: "absolute",
+                zIndex: 5,
+              }}
+            >
+              <p className={textStyles.whiteTitle} style={{ zIndex: 5 }}>
+                DERMAL FILLERS
+              </p>
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                right: "20vw",
+                height: 50,
+                width: "100vw",
+                top: "30%",
+                background:
+                  "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
+                zIndex: 0,
+              }}
+            ></div>
+          </Grid>
+          <Grid item xs={6}>
+            <img
+              src="/dermal-filler-injections.jpg"
+              style={{ width: "100%" }}
             />
+          </Grid>
+          <Grid item xs={1} />
+          <Grid item xs={5}>
+            <p className={textStyles.contentText} style={{ fontSize: 20 }}>
+              As your skin ages, it loses the collagen that helps shape and
+              support it. Natural lines and wrinkles deepen. Sun exposure,
+              smoking, air pollution and even stress can all age your
+              appearance. The face can also begin to lose volume giving sunken
+              cheeks and a ‘dragged down’ appearance.
+            </p>{" "}
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        xs={12}
+        style={{
+          background:
+            "linear-gradient(0deg, rgba(200,200,200,0) 0%, rgba(200,200,200,0.2049194677871149) 100%)",
+          justifyContent: "center",
+          marginTop: 50,
+        }}
+        justifyContent="center"
+      >
+        <Grid item container xs={8}>
+          <ScrollAnimation
+            animateIn="animate__zoomIn"
+            duration={1}
+            animateOnce={true}
+          >
+            <Grid item xs={12} style={{ marginBottom: 0 }}>
+              <p className={textStyles.blueTitle}>FREQUENTLY ASKED QUESTIONS</p>
+            </Grid>
+          </ScrollAnimation>
+          <Grid item container xs={12} style={{ marginBottom: 50 }}>
+            {details.map((detail, index) => {
+              return (
+                <Grid item xs={6}>
+                  <ScrollAnimation
+                    animateIn="animate__fadeInDown"
+                    duration={1}
+                    animateOnce={true}
+                    delay={index % 2 === 0 ? 0 : 100}
+                  >
+                    <Link
+                      to={`/treatments/dermal-fillers#${index}`}
+                      smooth
+                      style={{ textDecoration: "none" }}
+                    >
+                      <p
+                        className={textStyles.contentTextFAQ}
+                        style={{ fontSize: 26 }}
+                      >
+                        <ChevronRight style={{ marginRight: 10 }} />
+                        {detail.title}
+                      </p>
+                    </Link>
+                  </ScrollAnimation>
+                </Grid>
+              );
+            })}
+            <p className={textStyles.blueTitle}></p>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        xs={12}
+        style={{
+          justifyContent: "center",
+        }}
+        justifyContent="center"
+      >
+        <Grid item container xs={8}>
+          {details.map((detail, index) => (
+            <FAQs title={detail.title} body={detail.body} index={index} />
           ))}
         </Grid>
       </Grid>
@@ -52,36 +136,48 @@ export const Dermal = () => {
   );
 };
 
-const Accordions = ({ setPanel, panel, title, body, index }) => {
+const FAQs = ({ title, body, index }) => {
   const styles = useStyles();
   const textStyles = useTextStyles();
 
   return (
-    <Accordion
-      expanded={panel === index}
-      onChange={setPanel(index)}
-      className={styles.accordion}
+    <Grid
+      item
+      container
+      xs={12}
+      style={{
+        justifyContent: "center",
+        borderBottom: "1px solid rgba(67,168,215, 0.5)",
+        paddingBottom: 30,
+      }}
     >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
-        aria-controls="panel4bh-content"
-        id="panel4bh-header"
-      >
-        <p
-          className={textStyles.whiteHeading}
-          style={{ marginTop: 0, marginBottom: 0 }}
+      <Grid item xs={12} style={{ magrinBottom: 40 }}>
+        <ScrollAnimation
+          animateIn="animate__fadeInLeft"
+          duration={1}
+          animateOnce={true}
         >
-          {title}
-        </p>
-      </AccordionSummary>
-      <AccordionDetails className={styles.accordionDetails}>
-        <p className={textStyles.contentTextNoBottom}>{body}</p>
-      </AccordionDetails>
-    </Accordion>
+          <p className={textStyles.blueTitle} id={`${index}`}>
+            {title}
+          </p>
+        </ScrollAnimation>
+      </Grid>
+      <Grid item xs={10} style={{ magrinBottom: 40 }}>
+        <ScrollAnimation
+          animateIn="animate__fadeInLeft"
+          duration={1}
+          animateOnce={true}
+          delay={300}
+        >
+          <p className={textStyles.contentText} style={{ fontSize: 24 }}>
+            {body}
+          </p>
+        </ScrollAnimation>
+      </Grid>
+    </Grid>
   );
 };
-
-const accordionDetails = [
+const details = [
   {
     title: "What are dermal fillers?",
     body: (

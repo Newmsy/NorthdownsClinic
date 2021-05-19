@@ -11,42 +11,129 @@ import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as ChevronRight } from "../Assets/chevron-right.svg";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { HashLink as Link } from "react-router-hash-link";
+import ScrollAnimation from "react-animate-on-scroll";
 
 export const Wrinkle = () => {
   const styles = useStyles();
   const textStyles = useTextStyles();
 
-  const [expanded, setExpanded] = React.useState(0);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(panel);
-  };
-
   return (
     <Grid container xs={12} justify={"center"}>
-      <Grid xs={8} item container className={styles.mainGrid} spacing={4}>
-        <Grid item xs={12}>
-          <p className={textStyles.blueTitle}>WRINKLE REDUCTION INJECTIONS</p>
-          <img src="/wrinkle-reduction-injection.jpg" />
-          <p className={textStyles.contentText}>
-            The use of prescription only medication Botulinum toxin (known as
-            Botox™) produces relaxation of the muscles that account for the
-            wrinkles and lines seen in the frown, forehead and crow’s feet. It
-            can safely restore a relaxed look. Doctors have been doing these
-            injections successfully and safely for more than 20 years in many
-            different specialities of medicine, eg Neurology, Urology, Surgery
-            and Ophthalmology with no long term side effects reported.
-          </p>
-        </Grid>
-        <Grid item xs={10}>
-          {accordionDetails.map((detail, index) => (
-            <Accordions
-              title={detail.title}
-              body={detail.body}
-              panel={expanded}
-              setPanel={handleChange}
-              index={index}
+      <Grid xs={8} item container className={styles.mainGrid}>
+        <Grid item container xs={12}>
+          <Grid item xs={12} style={{ position: "relative", height: 100 }}>
+            <div
+              style={{
+                position: "absolute",
+                zIndex: 5,
+              }}
+            >
+              <p className={textStyles.whiteTitle} style={{ zIndex: 5 }}>
+                WRINKLE REDUCTION INJECTIONS
+              </p>
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                right: "20vw",
+                height: 50,
+                width: "100vw",
+                top: "30%",
+                background:
+                  "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
+                zIndex: 0,
+              }}
+            ></div>
+          </Grid>
+          <Grid item xs={6}>
+            <img
+              src="/wrinkle-reduction-injection.jpg"
+              style={{ width: "100%" }}
             />
+          </Grid>
+          <Grid item xs={1} />
+          <Grid item xs={5}>
+            <p className={textStyles.contentText} style={{ fontSize: 20 }}>
+              The use of prescription only medication Botulinum toxin (known as
+              Botox™) produces relaxation of the muscles that account for the
+              wrinkles and lines seen in the frown, forehead and crow’s feet. It
+              can safely restore a relaxed look.
+            </p>{" "}
+            <p className={textStyles.contentText} style={{ fontSize: 20 }}>
+              Doctors have been doing these injections successfully and safely
+              for more than 20 years in many different specialities of medicine,
+              eg Neurology, Urology, Surgery and Ophthalmology with no long term
+              side effects reported.
+            </p>{" "}
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        xs={12}
+        style={{
+          background:
+            "linear-gradient(0deg, rgba(200,200,200,0) 0%, rgba(200,200,200,0.2049194677871149) 100%)",
+          justifyContent: "center",
+          marginTop: 50,
+        }}
+        justifyContent="center"
+      >
+        <Grid item container xs={8}>
+          <ScrollAnimation
+            animateIn="animate__zoomIn"
+            duration={1}
+            animateOnce={true}
+          >
+            <Grid item xs={12} style={{ marginBottom: 0 }}>
+              <p className={textStyles.blueTitle}>FREQUENTLY ASKED QUESTIONS</p>
+            </Grid>
+          </ScrollAnimation>
+          <Grid item container xs={12} style={{ marginBottom: 50 }}>
+            {details.map((detail, index) => {
+              return (
+                <Grid item xs={6}>
+                  <ScrollAnimation
+                    animateIn="animate__fadeInDown"
+                    duration={1}
+                    animateOnce={true}
+                    delay={index % 2 === 0 ? 0 : 100}
+                  >
+                    <Link
+                      to={`/treatments/wrinkle-reduction-botox#${index}`}
+                      smooth
+                      style={{ textDecoration: "none" }}
+                    >
+                      <p
+                        className={textStyles.contentTextFAQ}
+                        style={{ fontSize: 26 }}
+                      >
+                        <ChevronRight style={{ marginRight: 10 }} />
+                        {detail.title}
+                      </p>
+                    </Link>
+                  </ScrollAnimation>
+                </Grid>
+              );
+            })}
+            <p className={textStyles.blueTitle}></p>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid
+        item
+        container
+        xs={12}
+        style={{
+          justifyContent: "center",
+        }}
+        justifyContent="center"
+      >
+        <Grid item container xs={8}>
+          {details.map((detail, index) => (
+            <FAQs title={detail.title} body={detail.body} index={index} />
           ))}
         </Grid>
       </Grid>
@@ -54,50 +141,67 @@ export const Wrinkle = () => {
   );
 };
 
-const Accordions = ({ setPanel, panel, title, body, index }) => {
+const FAQs = ({ title, body, index }) => {
   const styles = useStyles();
   const textStyles = useTextStyles();
 
   return (
-    <Accordion
-      expanded={panel === index}
-      onChange={setPanel(index)}
-      className={styles.accordion}
+    <Grid
+      item
+      container
+      xs={12}
+      style={{
+        justifyContent: "center",
+        borderBottom: "1px solid rgba(67,168,215, 0.5)",
+        paddingBottom: 30,
+      }}
     >
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
-        aria-controls="panel4bh-content"
-        id="panel4bh-header"
-      >
-        <p
-          className={textStyles.whiteHeading}
-          style={{ marginTop: 0, marginBottom: 0 }}
+      <Grid item xs={12} style={{ magrinBottom: 40 }}>
+        <ScrollAnimation
+          animateIn="animate__fadeInLeft"
+          duration={1}
+          animateOnce={true}
         >
-          {title}
-        </p>
-      </AccordionSummary>
-      <AccordionDetails className={styles.accordionDetails}>
-        <p className={textStyles.contentTextNoBottom}>{body}</p>
-      </AccordionDetails>
-    </Accordion>
+          <p className={textStyles.blueTitle} id={`${index}`}>
+            {title}
+          </p>
+        </ScrollAnimation>
+      </Grid>
+      <Grid item xs={10} style={{ magrinBottom: 40 }}>
+        <ScrollAnimation
+          animateIn="animate__fadeInLeft"
+          duration={1}
+          animateOnce={true}
+          delay={300}
+        >
+          <p className={textStyles.contentText} style={{ fontSize: 24 }}>
+            {body}
+          </p>
+        </ScrollAnimation>
+      </Grid>
+    </Grid>
   );
 };
 
-const accordionDetails = [
+const details = [
   {
     title: "How does it work?",
     body: (
-      <p>
-        Acetylcholine is a chemical messenger produced in our nerves to
-        stimulate the muscles to contract. The botulinum toxin reduces the
-        release of the acetylcholine and hence reducing muscle contraction,
-        leaving the overlying skin smooth and unwrinkled. The action on the
-        muscle is not permanent, and it works on specific muscles, leaving the
-        surrounding muscles unaffected, producing normal facial expressions
-        without the wrinkles. However, if you try very hard, you will still be
-        able to move the muscles a little, but this does not mean the treatment
-        has not worked.
-      </p>
+      <>
+        <p>
+          Acetylcholine is a chemical messenger produced in our nerves to
+          stimulate the muscles to contract. The botulinum toxin reduces the
+          release of the acetylcholine and hence reducing muscle contraction,
+          leaving the overlying skin smooth and unwrinkled.
+        </p>
+        <p>
+          The action on the muscle is not permanent, and it works on specific
+          muscles, leaving the surrounding muscles unaffected, producing normal
+          facial expressions without the wrinkles. However, if you try very
+          hard, you will still be able to move the muscles a little, but this
+          does not mean the treatment has not worked.
+        </p>
+      </>
     ),
   },
   {
@@ -123,31 +227,40 @@ const accordionDetails = [
   {
     title: "How is the treatment performed?",
     body: (
-      <p>
-        Disposable syringes are used to inject the solution with a fine needle
-        such as those used in diabetics, hence it is hardly felt. A small amount
-        of botulinium powder is diluted with bacteriostatic saline and injected
-        very precisely into several locations. It will take 2-3 days for the
-        effects to start to be seen, and is usually at its maximum effect by 2
-        weeks. The treatment may last from 2-6 months, on average 4 months. With
-        ongoing repetitive treatment, the effects begin to last for longer after
-        18 months or so. Occasionally you may require a top up injection at 2
-        weeks if the muscle is not fully relaxed.
-      </p>
+      <>
+        <p>
+          Disposable syringes are used to inject the solution with a fine needle
+          such as those used in diabetics, hence it is hardly felt. A small
+          amount of botulinium powder is diluted with bacteriostatic saline and
+          injected very precisely into several locations. It will take 2-3 days
+          for the effects to start to be seen, and is usually at its maximum
+          effect by 2 weeks.
+        </p>
+        <p>
+          The treatment may last from 2-6 months, on average 4 months. With
+          ongoing repetitive treatment, the effects begin to last for longer
+          after 18 months or so. Occasionally you may require a top up injection
+          at 2 weeks if the muscle is not fully relaxed.
+        </p>
+      </>
     ),
   },
   {
     title: "Is Botox™ Safe?",
     body: (
-      <p>
-        Botox™ is a purified protein and is used in very small quantities. It
-        cannot produce any permanent damage or travel within the body to make
-        you ill. It attaches to the muscles it is placed in and can not migrate
-        from there. Botox™ is a prescription only drug that has to be
-        handwritten up by a doctor. Prescription only drugs cannot be advertised
-        and this is why you will not find any information sheets in a waiting
-        room.
-      </p>
+      <>
+        <p>
+          Botox™ is a purified protein and is used in very small quantities. It
+          cannot produce any permanent damage or travel within the body to make
+          you ill. It attaches to the muscles it is placed in and can not
+          migrate from there.
+        </p>
+        <p>
+          Botox™ is a prescription only drug that has to be handwritten up by a
+          doctor. Prescription only drugs cannot be advertised and this is why
+          you will not find any information sheets in a waiting room.
+        </p>
+      </>
     ),
   },
   {

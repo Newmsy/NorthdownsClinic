@@ -11,6 +11,7 @@ import { Hyperhidrosis } from "./Treatments/hyperhidrosis";
 import { BeforeAfter } from "./Treatments/beforeafter";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import "animate.css/animate.min.css";
 
 function ScrollToTop() {
   const { pathname } = useLocation();

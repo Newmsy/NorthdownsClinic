@@ -17,18 +17,26 @@ export const Layout = (props) => {
   });
 
   return (
-    <div>
+    <div style={{ overflowX: "hidden" }}>
       <Toolbar className={styles.appBar}>
         <Grid container xs={12}>
-          <Grid item md={2} sm={0} />
-          <Grid item md={3} sm={12}>
+          <Grid xs={1}></Grid>
+          <Grid item md={2} sm={12}>
             <img src="/logo.png" alt="logo" />
           </Grid>
-          <Grid item md={1} sm={0} />
-          <Grid item container md={4} sm={12}>
+
+          <Grid
+            item
+            container
+            md={6}
+            sm={12}
+            style={{ justifyContent: "center" }}
+          >
             <Grid item className={styles.barText} onClick={() => visit("/")}>
               Home
-              {path === "/" && <ChevronDown />}
+              {path === "/" && (
+                <ChevronDown style={{ transform: "scale(1.5, 1.5)" }} />
+              )}
             </Grid>
             <Grid
               item
@@ -36,7 +44,9 @@ export const Layout = (props) => {
               onClick={() => visit("/about")}
             >
               About the Clinic
-              {path === "/about" && <ChevronDown />}
+              {path === "/about" && (
+                <ChevronDown style={{ transform: "scale(1.5, 1.5)" }} />
+              )}
             </Grid>
             <Grid
               item
@@ -44,7 +54,9 @@ export const Layout = (props) => {
               onClick={() => visit("/treatments")}
             >
               Treatments
-              {path.includes("/treatments") && <ChevronDown />}
+              {path.includes("/treatments") && (
+                <ChevronDown style={{ transform: "scale(1.5, 1.5)" }} />
+              )}
             </Grid>
             <Grid
               item
@@ -52,7 +64,9 @@ export const Layout = (props) => {
               onClick={() => visit("/contact")}
             >
               Contact
-              {path === "/contact" && <ChevronDown />}
+              {path === "/contact" && (
+                <ChevronDown style={{ transform: "scale(1.5, 1.5)" }} />
+              )}
             </Grid>
           </Grid>
         </Grid>
@@ -64,22 +78,28 @@ export const Layout = (props) => {
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    backgroundColor: "rgb(126,162,255)",
-    height: 150,
+    height: 120,
+    backgroundColor: "rgba(255,255,255,0.5)",
+    zIndex: 100,
+    //borderBottom: "2px solid rgba(78, 173, 113, 0.3)",
   },
   barText: {
     textAlign: "center",
-    fontSize: 20,
-    color: "#fff",
+    fontSize: 28,
+    color: "rgba(100,100,100,1)",
     marginTop: 30,
     marginLeft: 50,
+    fontWeight: 100,
+    height: 55,
+    position: "relative",
     cursor: "pointer",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     transition: "0.5s",
+
     "&:hover": {
-      color: "rgb(168, 212, 247)",
+      color: "rgb(0, 0, 0)",
     },
   },
 }));

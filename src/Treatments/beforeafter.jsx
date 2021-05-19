@@ -10,7 +10,7 @@ export const BeforeAfter = () => {
 
   return (
     <Grid container xs={12} justify={"center"}>
-      <Grid xs={8} item container className={styles.mainGrid} spacing={6}>
+      <Grid xs={12} item container className={styles.mainGrid} spacing={6}>
         <Grid xs={12}>
           <p className={textStyles.blueTitle}>EXAMPLES OF OUR TREATMENTS</p>
         </Grid>

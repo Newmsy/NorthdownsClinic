@@ -16,13 +16,34 @@ export const Treatments = () => {
 
   return (
     <Grid container xs={12} justify={"center"}>
-      <Grid xs={8} item container className={styles.mainGrid}>
-        <Grid item xs={12} style={{ height: 100, marginLeft: 40 }}>
-          <p className={textStyles.blueTitle}>TREATMENTS</p>
+      <Grid xs={12} md={8} item container className={styles.mainGrid}>
+        <Grid item xs={12} style={{ position: "relative", height: 100 }}>
+          <div
+            style={{
+              position: "absolute",
+              zIndex: 5,
+            }}
+          >
+            <p className={textStyles.whiteTitle} style={{ zIndex: 5 }}>
+              TREATMENTS
+            </p>
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              right: "20vw",
+              height: 50,
+              width: "100vw",
+              top: "30%",
+              background:
+                "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 30%, rgba(255,255,255,0.7567401960784313) 100%)",
+              zIndex: 0,
+            }}
+          ></div>
         </Grid>
         <Grid
           item
-          xs={10}
+          xs={12}
           md={5}
           className={styles.boxItem}
           onClick={() => onNavigate("treatments/wrinkle-reduction-botox")}
@@ -36,7 +57,10 @@ export const Treatments = () => {
               Wrinkle Reduction Injections
             </p>
           </div>
-          <p className={textStyles.contentText} style={{ marginLeft: 20 }}>
+          <p
+            className={textStyles.contentText}
+            style={{ marginLeft: 20, marginRight: 20 }}
+          >
             The use of prescription only medication Botulinum toxin (known as
             Botox™) produces relaxation of the muscles that account for the
             wrinkles and lines seen in the frown, forehead and crow’s feet. It
@@ -58,7 +82,7 @@ export const Treatments = () => {
         </Grid>
         <Grid
           item
-          xs={10}
+          xs={12}
           md={5}
           className={styles.boxItem}
           onClick={() => onNavigate("treatments/dermal-fillers")}
@@ -72,7 +96,10 @@ export const Treatments = () => {
               Dermal Fillers
             </p>
           </div>
-          <p className={textStyles.contentText} style={{ marginLeft: 20 }}>
+          <p
+            className={textStyles.contentText}
+            style={{ marginLeft: 20, marginRight: 20 }}
+          >
             Dermal fillers are injectable treatments to reduce the appearance of
             lines and wrinkles by plumping out the lines.
           </p>
@@ -92,7 +119,7 @@ export const Treatments = () => {
         </Grid>
         <Grid
           item
-          xs={10}
+          xs={12}
           md={5}
           className={styles.boxItem}
           onClick={() => onNavigate("treatments/hyperhidrosis-treatment")}
@@ -105,14 +132,17 @@ export const Treatments = () => {
           </div>
           <p
             className={textStyles.contentTextNoBottom}
-            style={{ marginLeft: 20 }}
+            style={{ marginLeft: 20, marginRight: 20 }}
           >
             Hyperhidrosis is a condition characterised by excessive sweating,
             usually in areas where there is a high concentration of sweat glands
             such as the hands, feet, armpits and the groin area. Excessive
             sweating can even occur when temperatures are cooler or at rest.
           </p>
-          <p className={textStyles.contentText} style={{ marginLeft: 20 }}>
+          <p
+            className={textStyles.contentText}
+            style={{ marginLeft: 20, marginRight: 20 }}
+          >
             We offer highly effective treatment for excessive sweating at the
             Northdowns Cosmetic Clinic.
           </p>
@@ -132,7 +162,7 @@ export const Treatments = () => {
         </Grid>
         <Grid
           item
-          xs={10}
+          xs={12}
           md={5}
           className={styles.boxItem}
           onClick={() => onNavigate("treatments/before-after")}
@@ -143,7 +173,10 @@ export const Treatments = () => {
               Before & After
             </p>
           </div>
-          <p className={textStyles.contentText} style={{ marginLeft: 20 }}>
+          <p
+            className={textStyles.contentText}
+            style={{ marginLeft: 20, marginRight: 20 }}
+          >
             View examples of how our treatments improve looks.
           </p>
           <div style={{ width: "100%", height: 40 }} />

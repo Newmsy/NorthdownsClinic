@@ -8,10 +8,30 @@ export const useTextStyles = makeStyles(() => ({
     //transform: "scale(1, 1.2)",
     fontWeight: 100,
   },
+  whiteTitle: {
+    fontSize: 32,
+    color: "#fff",
+    fontStretch: "condensed",
+    //transform: "scale(1, 1.2)",
+    fontWeight: 100,
+  },
   contentText: {
-    fontSize: 15,
+    fontSize: 18,
     color: "rgb(138, 138, 138)",
     marginBottom: 20,
+    textAlign: "justify",
+    fontWeight: 300,
+  },
+  contentTextFAQ: {
+    fontSize: 18,
+    color: "rgb(138, 138, 138)",
+    marginBottom: 20,
+    textAlign: "justify",
+    fontWeight: 300,
+    textDecoration: "none",
+    "&:hover": {
+      textDecoration: "underline",
+    },
   },
   contentTextNoBottom: {
     fontSize: 15,

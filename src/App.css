@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.hoverChevron {
+  animation: MoveUpDown 2s linear infinite;
+  position: absolute;
+  bottom: 0;
+}
+
+@keyframes MoveUpDown {
+  0%,
+  100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 10px;
+  }
+}
