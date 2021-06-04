@@ -21,34 +21,19 @@ export const BeforeAfter = () => {
           <img src="/before-after-crows-feet.jpg" className={styles.image} />
         </Grid>
         <Grid xs={12} sm={6} item>
-          <img
-            src="/before-after-lip-enhancement.jpg"
-            className={styles.image}
-          />
+          <img src="/before-after-lip-enhancement.jpg" className={styles.image} />
         </Grid>
         <Grid xs={12} sm={6} item>
-          <img
-            src="/before-after-nasolabial-folds.jpg"
-            className={styles.image}
-          />
+          <img src="/before-after-nasolabial-folds.jpg" className={styles.image} />
         </Grid>
         <Grid xs={12} sm={6} item>
-          <img
-            src="/before-after-nasolabial-folds2.jpg"
-            className={styles.image}
-          />
+          <img src="/before-after-nasolabial-folds2.jpg" className={styles.image} />
         </Grid>
         <Grid xs={12} sm={6} item>
-          <img
-            src="/before-after-vermillion-border.jpg"
-            className={styles.image}
-          />
+          <img src="/before-after-vermillion-border.jpg" className={styles.image} />
         </Grid>
         <Grid xs={12} sm={6} item>
-          <img
-            src="/before-after-forehead-lines.jpg"
-            className={styles.image}
-          />
+          <img src="/before-after-forehead-lines.jpg" className={styles.image} />
         </Grid>
       </Grid>
     </Grid>

@@ -22,6 +22,12 @@ export const useTextStyles = makeStyles(() => ({
     textAlign: "justify",
     fontWeight: 300,
   },
+  contentTextNJ: {
+    fontSize: 18,
+    color: "rgb(138, 138, 138)",
+    marginBottom: 20,
+    fontWeight: 300,
+  },
   contentTextFAQ: {
     fontSize: 18,
     color: "rgb(138, 138, 138)",

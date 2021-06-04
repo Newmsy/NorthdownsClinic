@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Box, Grid } from "@material-ui/core";
+import { makeStyles, Box, Grid, Hidden } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as ChevronRight } from "../Assets/chevron-right.svg";
@@ -12,18 +12,28 @@ export const Home = () => {
   const textStyles = useTextStyles();
   return (
     <Grid xs={12} container style={{ justifyContent: "center" }}>
-      <Grid xs={12}>
-        <img
-          src="homeImage.png"
-          style={{
-            position: "relative",
-            bottom: 120,
-            width: "100vw",
-            marginBottom: -120,
-          }}
-        />
+      <Grid xs={12} item>
+        <Hidden smDown>
+          <img
+            src="homeImage.png"
+            style={{
+              position: "relative",
+              bottom: 120,
+              width: "100vw",
+              marginBottom: -120,
+            }}
+          />
+        </Hidden>
+        <Hidden mdUp>
+          <img
+            src="homeSmall.png"
+            style={{
+              width: "100vw",
+            }}
+          />
+        </Hidden>
       </Grid>
-      <Grid item xs={8}>
+      <Grid item container sm={11} md={8}>
         <Grid item xs={12} style={{ position: "relative", height: 100 }}>
           <div
             style={{
@@ -49,12 +59,8 @@ export const Home = () => {
           ></div>
         </Grid>
 
-        <Grid xs={12}>
-          <ScrollAnimation
-            animateIn="animate__fadeIn"
-            duration={1}
-            animateOnce={true}
-          >
+        <Grid item xs={12}>
+          <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true}>
             <p className={textStyles.blueTitle} style={{ textAlign: "center" }}>
               BOTOX™ WRINKLE REDUCTION
             </p>
@@ -62,40 +68,35 @@ export const Home = () => {
         </Grid>
         <Grid
           item
+          container
           xs={12}
           style={{
-            position: "relative",
             flexDirection: "row",
             display: "flex",
             marginBottom: 50,
           }}
         >
-          <Grid xs={4}>
-            <img src="wrinkle-reduction-home.jpg" style={{ width: "100%" }} />
+          <Grid item sm={12} md={4}>
+            <img src="wrinkle-reduction-home.jpg" style={{ maxWidth: "100%" }} />
           </Grid>
-          <Grid xs={1} />
-          <Grid xs={6}>
-            <p className={textStyles.contentText} style={{ fontSize: 24 }}>
-              The use of prescription only medication Botulinum toxin, known as
-              Botox™, produces relaxation of the muscles that account for the
-              wrinkles and lines seen in the frown, forehead and crow’s feet. It
-              can safely restore a relaxed look.
-            </p>
-            <Link
-              to={`/treatments/wrinkle-reduction-botox`}
-              smooth
-              style={{ textDecoration: "none" }}
+          <Grid item sm={0} md={1} />
+          <Grid item sm={10} md={6}>
+            <p
+              className={textStyles.contentText}
+              style={{
+                fontSize: 20,
+                paddingLeft: 10,
+                paddingRight: 10,
+                paddingLeft: 10,
+                paddingRight: 10,
+              }}
             >
-              <p
-                className={textStyles.contentTextFAQ}
-                style={{ fontSize: 26, textAlign: "right" }}
-              >
-                <ScrollAnimation
-                  animateIn="animate__fadeIn"
-                  duration={1}
-                  animateOnce={true}
-                  delay={200}
-                >
+              The use of prescription only medication Botulinum toxin, known as Botox™, produces relaxation of the muscles that account for
+              the wrinkles and lines seen in the frown, forehead and crow’s feet. It can safely restore a relaxed look.
+            </p>
+            <Link to={`/treatments/wrinkle-reduction-botox`} smooth style={{ textDecoration: "none" }}>
+              <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "right" }}>
+                <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={200}>
                   Learn more
                   <ChevronRight style={{ marginLeft: 10 }} />
                 </ScrollAnimation>
@@ -104,7 +105,7 @@ export const Home = () => {
           </Grid>
         </Grid>
 
-        <Grid xs={12}>
+        <Grid xs={12} item>
           <p
             className={textStyles.blueTitle}
             style={{
@@ -113,11 +114,7 @@ export const Home = () => {
               paddingTop: 50,
             }}
           >
-            <ScrollAnimation
-              animateIn="animate__fadeIn"
-              duration={1}
-              animateOnce={true}
-            >
+            <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true}>
               DERMAL FILLERS
             </ScrollAnimation>
           </p>
@@ -125,6 +122,7 @@ export const Home = () => {
 
         <Grid
           item
+          container
           xs={12}
           style={{
             position: "relative",
@@ -133,32 +131,18 @@ export const Home = () => {
             marginBottom: 50,
           }}
         >
-          <Grid xs={4}>
-            <img src="dermal-fillers-home.jpg" style={{ width: "100%" }} />
+          <Grid item sm={12} md={4}>
+            <img src="dermal-fillers-home.jpg" style={{ maxWidth: "100%" }} />
           </Grid>
-          <Grid xs={1} />
-          <Grid xs={6}>
-            <p className={textStyles.contentText} style={{ fontSize: 24 }}>
-              Dermal fillers such as Juvéderm™, Restylane™ and Sculptra™ are
-              used as an effective treatment for deep lines and wrinkles. They
-              can help reduce deep lines and wrinkles, fill hollows, enhance
-              sunken cheeks and smooth the contours of your face.
+          <Grid sm={0} md={1} />
+          <Grid sm={12} md={6}>
+            <p className={textStyles.contentText} style={{ fontSize: 20, paddingLeft: 10, paddingRight: 10 }}>
+              Dermal fillers such as Juvéderm™, Restylane™ and Sculptra™ are used as an effective treatment for deep lines and wrinkles.
+              They can help reduce deep lines and wrinkles, fill hollows, enhance sunken cheeks and smooth the contours of your face.
             </p>
-            <Link
-              to={`/treatments/dermal-fillers`}
-              smooth
-              style={{ textDecoration: "none" }}
-            >
-              <p
-                className={textStyles.contentTextFAQ}
-                style={{ fontSize: 26, textAlign: "right" }}
-              >
-                <ScrollAnimation
-                  animateIn="animate__fadeIn"
-                  duration={1}
-                  animateOnce={true}
-                  delay={200}
-                >
+            <Link to={`/treatments/dermal-fillers`} smooth style={{ textDecoration: "none" }}>
+              <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "right" }}>
+                <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={200}>
                   Learn more
                   <ChevronRight style={{ marginLeft: 10 }} />
                 </ScrollAnimation>
@@ -176,17 +160,14 @@ export const Home = () => {
               paddingTop: 50,
             }}
           >
-            <ScrollAnimation
-              animateIn="animate__fadeIn"
-              duration={1}
-              animateOnce={true}
-            >
+            <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true}>
               HYPERHIDROSIS TREATMENT
             </ScrollAnimation>
           </p>
         </Grid>
         <Grid
           item
+          container
           xs={12}
           style={{
             position: "relative",
@@ -195,33 +176,19 @@ export const Home = () => {
             marginBottom: 100,
           }}
         >
-          <Grid xs={4}>
-            <img src="hyperhidrosis-home.jpg" style={{ width: "100%" }} />
+          <Grid item sm={12} md={4}>
+            <img src="hyperhidrosis-home.jpg" style={{ maxWidth: "100%" }} />
           </Grid>
-          <Grid xs={1} />
-          <Grid xs={6}>
-            <p className={textStyles.contentText} style={{ fontSize: 24 }}>
-              Hyperhidrosis is a condition characterised by excessive sweating,
-              usually in areas where there is a high concentration of sweat
-              glands such as the hands, feet, armpits and the groin area.
-              Excessive sweating can even occur when temperatures are cooler or
-              at rest.
+          <Grid item sm={0} md={1} />
+          <Grid item sm={12} md={6}>
+            <p className={textStyles.contentText} style={{ fontSize: 20, paddingLeft: 10, paddingRight: 10 }}>
+              Hyperhidrosis is a condition characterised by excessive sweating, usually in areas where there is a high concentration of
+              sweat glands such as the hands, feet, armpits and the groin area. Excessive sweating can even occur when temperatures are
+              cooler or at rest.
             </p>
-            <Link
-              to={`/treatments/hyperhidrosis-treatment`}
-              smooth
-              style={{ textDecoration: "none" }}
-            >
-              <p
-                className={textStyles.contentTextFAQ}
-                style={{ fontSize: 26, textAlign: "right" }}
-              >
-                <ScrollAnimation
-                  animateIn="animate__fadeIn"
-                  duration={1}
-                  animateOnce={true}
-                  delay={200}
-                >
+            <Link to={`/treatments/hyperhidrosis-treatment`} smooth style={{ textDecoration: "none" }}>
+              <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "right" }}>
+                <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={200}>
                   Learn more
                   <ChevronRight style={{ marginLeft: 10 }} />
                 </ScrollAnimation>

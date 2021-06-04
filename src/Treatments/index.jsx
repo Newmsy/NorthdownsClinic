@@ -3,6 +3,7 @@ import { makeStyles, Box, Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as ChevronRight } from "../Assets/chevron-right.svg";
+import ScrollAnimation from "react-animate-on-scroll";
 
 export const Treatments = () => {
   const styles = useStyles();
@@ -41,157 +42,118 @@ export const Treatments = () => {
             }}
           ></div>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={5}
-          className={styles.boxItem}
-          onClick={() => onNavigate("treatments/wrinkle-reduction-botox")}
-        >
-          <img
-            src="/wrinkle-reduction-injection.jpg"
-            className={styles.boxImage}
-          />
-          <div className={styles.banner}>
-            <p className={textStyles.whiteHeading} style={{ marginTop: 7 }}>
-              Wrinkle Reduction Injections
+
+        <Grid item xs={12} md={5} className={styles.boxItem} onClick={() => onNavigate("treatments/wrinkle-reduction-botox")}>
+          {" "}
+          <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={0}>
+            <img src="/wrinkle-reduction-injection.jpg" className={styles.boxImage} />
+            <div className={styles.banner}>
+              <p className={textStyles.whiteHeading} style={{ paddingTop: 7 }}>
+                Wrinkle Reduction Injections
+              </p>
+            </div>
+            <p className={textStyles.contentTextNJ} style={{ marginLeft: 20, marginRight: 20 }}>
+              The use of prescription only medication Botulinum toxin (known as Botox™) produces relaxation of the muscles that account for
+              the wrinkles and lines seen in the frown, forehead and crow’s feet. It can safely restore a relaxed look.
             </p>
-          </div>
-          <p
-            className={textStyles.contentText}
-            style={{ marginLeft: 20, marginRight: 20 }}
-          >
-            The use of prescription only medication Botulinum toxin (known as
-            Botox™) produces relaxation of the muscles that account for the
-            wrinkles and lines seen in the frown, forehead and crow’s feet. It
-            can safely restore a relaxed look.
-          </p>
-          <div style={{ width: "100%", height: 40 }} />
-          <p
-            className={textStyles.contentText}
-            style={{
-              marginLeft: 20,
-              fontWeight: 600,
-              position: "absolute",
-              bottom: 10,
-              right: 20,
-            }}
-          >
-            READ MORE
-          </p>
+            <div style={{ width: "100%", height: 40 }} />
+            <p
+              className={textStyles.contentText}
+              style={{
+                marginLeft: 20,
+                fontWeight: 600,
+                position: "absolute",
+                bottom: 10,
+                right: 20,
+              }}
+            >
+              READ MORE
+            </p>
+          </ScrollAnimation>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={5}
-          className={styles.boxItem}
-          onClick={() => onNavigate("treatments/dermal-fillers")}
-        >
-          <img
-            src="/dermal-filler-injections.jpg"
-            className={styles.boxImage}
-          />
-          <div className={styles.banner}>
-            <p className={textStyles.whiteHeading} style={{ marginTop: 7 }}>
-              Dermal Fillers
+
+        <Grid item xs={12} md={5} className={styles.boxItem} onClick={() => onNavigate("treatments/dermal-fillers")}>
+          <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={150}>
+            <img src="/dermal-filler-injections.jpg" className={styles.boxImage} />
+            <div className={styles.banner}>
+              <p className={textStyles.whiteHeading} style={{ paddingTop: 7 }}>
+                Dermal Fillers
+              </p>
+            </div>
+            <p className={textStyles.contentTextNJ} style={{ marginLeft: 20, marginRight: 20 }}>
+              Dermal fillers are injectable treatments to reduce the appearance of lines and wrinkles by plumping out the lines.
             </p>
-          </div>
-          <p
-            className={textStyles.contentText}
-            style={{ marginLeft: 20, marginRight: 20 }}
-          >
-            Dermal fillers are injectable treatments to reduce the appearance of
-            lines and wrinkles by plumping out the lines.
-          </p>
-          <div style={{ width: "100%", height: 40 }} />
-          <p
-            className={textStyles.contentText}
-            style={{
-              marginLeft: 20,
-              fontWeight: 600,
-              position: "absolute",
-              bottom: 10,
-              right: 20,
-            }}
-          >
-            READ MORE
-          </p>
+            <div style={{ width: "100%", height: 40 }} />
+            <p
+              className={textStyles.contentText}
+              style={{
+                marginLeft: 20,
+                fontWeight: 600,
+                position: "absolute",
+                bottom: 10,
+                right: 20,
+              }}
+            >
+              READ MORE
+            </p>
+          </ScrollAnimation>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={5}
-          className={styles.boxItem}
-          onClick={() => onNavigate("treatments/hyperhidrosis-treatment")}
-        >
-          <img src="/hyperhidrosis-treatment.jpg" className={styles.boxImage} />
-          <div className={styles.banner}>
-            <p className={textStyles.whiteHeading} style={{ marginTop: 7 }}>
-              Hyperhidrosis Treatment
+        <Grid item xs={12} md={5} className={styles.boxItem} onClick={() => onNavigate("treatments/hyperhidrosis-treatment")}>
+          <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={300}>
+            <img src="/hyperhidrosis-treatment.jpg" className={styles.boxImage} />
+            <div className={styles.banner}>
+              <p className={textStyles.whiteHeading} style={{ paddingTop: 7 }}>
+                Hyperhidrosis Treatment
+              </p>
+            </div>
+            <p className={textStyles.contentTextNJ} style={{ marginLeft: 20, marginRight: 20 }}>
+              Hyperhidrosis is a condition characterised by excessive sweating, usually in areas where there is a high concentration of
+              sweat glands such as the hands, feet, armpits and the groin area. Excessive sweating can even occur when temperatures are
+              cooler or at rest.
             </p>
-          </div>
-          <p
-            className={textStyles.contentTextNoBottom}
-            style={{ marginLeft: 20, marginRight: 20 }}
-          >
-            Hyperhidrosis is a condition characterised by excessive sweating,
-            usually in areas where there is a high concentration of sweat glands
-            such as the hands, feet, armpits and the groin area. Excessive
-            sweating can even occur when temperatures are cooler or at rest.
-          </p>
-          <p
-            className={textStyles.contentText}
-            style={{ marginLeft: 20, marginRight: 20 }}
-          >
-            We offer highly effective treatment for excessive sweating at the
-            Northdowns Cosmetic Clinic.
-          </p>
-          <div style={{ width: "100%", height: 40 }} />
-          <p
-            className={textStyles.contentText}
-            style={{
-              marginLeft: 20,
-              fontWeight: 600,
-              position: "absolute",
-              bottom: 10,
-              right: 20,
-            }}
-          >
-            READ MORE
-          </p>
+            <p className={textStyles.contentTextNJ} style={{ marginLeft: 20, marginRight: 20 }}>
+              We offer highly effective treatment for excessive sweating at the Northdowns Cosmetic Clinic.
+            </p>
+            <div style={{ width: "100%", height: 40 }} />
+            <p
+              className={textStyles.contentText}
+              style={{
+                marginLeft: 20,
+                fontWeight: 600,
+                position: "absolute",
+                bottom: 10,
+                right: 20,
+              }}
+            >
+              READ MORE
+            </p>
+          </ScrollAnimation>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={5}
-          className={styles.boxItem}
-          onClick={() => onNavigate("treatments/before-after")}
-        >
-          <img src="/before-after.jpg" className={styles.boxImage} />
-          <div className={styles.banner}>
-            <p className={textStyles.whiteHeading} style={{ marginTop: 7 }}>
-              Before & After
+        <Grid item xs={12} md={5} className={styles.boxItem} onClick={() => onNavigate("treatments/before-after")}>
+          <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={450}>
+            <img src="/before-after.jpg" className={styles.boxImage} />
+            <div className={styles.banner}>
+              <p className={textStyles.whiteHeading} style={{ paddingTop: 7 }}>
+                Before & After
+              </p>
+            </div>
+            <p className={textStyles.contentTextNJ} style={{ marginLeft: 20, marginRight: 20 }}>
+              View examples of how our treatments improve looks.
             </p>
-          </div>
-          <p
-            className={textStyles.contentText}
-            style={{ marginLeft: 20, marginRight: 20 }}
-          >
-            View examples of how our treatments improve looks.
-          </p>
-          <div style={{ width: "100%", height: 40 }} />
-          <p
-            className={textStyles.contentText}
-            style={{
-              marginLeft: 20,
-              fontWeight: 600,
-              position: "absolute",
-              bottom: 10,
-              right: 20,
-            }}
-          >
-            READ MORE
-          </p>
+            <div style={{ width: "100%", height: 40 }} />
+            <p
+              className={textStyles.contentText}
+              style={{
+                marginLeft: 20,
+                fontWeight: 600,
+                position: "absolute",
+                bottom: 10,
+                right: 20,
+              }}
+            >
+              READ MORE
+            </p>
+          </ScrollAnimation>
         </Grid>
       </Grid>
     </Grid>
@@ -225,5 +187,6 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "rgb(50,181,232)",
     textAlign: "center",
     marginBottom: 20,
+    marginTop: -24,
   },
 }));
