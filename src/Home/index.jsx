@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Box, Grid, Hidden } from "@material-ui/core";
+import { makeStyles, Box, Grid, Hidden, Fade } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as ChevronRight } from "../Assets/chevron-right.svg";
@@ -32,9 +32,9 @@ export const Home = () => {
               }}
             >
               <div style={{ position: "relative", display: "flex", alignItems: "flex-end", flexDirection: "column" }}>
-                <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true}>
+                <Fade in={true}>
                   <img src="titleDark.png" />
-                </ScrollAnimation>
+                </Fade>
 
                 <Link to={`/treatments/wrinkle-reduction-botox`} smooth style={{ textDecoration: "none" }}>
                   <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "right", marginTop: 0, width: 100 }}>
