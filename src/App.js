@@ -3,6 +3,7 @@ import { Layout } from "./Layout/index";
 import { Redirect, Route, Switch, Router } from "react-router";
 import { Home } from "./Home/index";
 import { About } from "./About/index";
+import { Contact } from "./Contact/index";
 import { Treatments } from "./Treatments/index";
 import { createBrowserHistory } from "history";
 import { Dermal } from "./Treatments/dermal";
@@ -33,6 +34,9 @@ function App() {
           <Switch>
             <Route path="/about" exact>
               <About />
+            </Route>
+            <Route path="/contact" exact>
+              <Contact />
             </Route>
             <Route path="/treatments/dermal-fillers">
               <Dermal />

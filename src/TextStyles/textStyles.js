@@ -1,6 +1,6 @@
 import { Toolbar, makeStyles, Box, Grid } from "@material-ui/core";
 
-export const useTextStyles = makeStyles(() => ({
+export const useTextStyles = makeStyles((theme) => ({
   blueTitle: {
     fontSize: 32,
     color: "rgb(67,168,215)",
@@ -14,6 +14,9 @@ export const useTextStyles = makeStyles(() => ({
     fontStretch: "condensed",
     //transform: "scale(1, 1.2)",
     fontWeight: 100,
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: 30,
+    },
   },
   contentText: {
     fontSize: 18,

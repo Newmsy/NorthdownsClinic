@@ -14,15 +14,39 @@ export const Home = () => {
     <Grid xs={12} container style={{ justifyContent: "center" }}>
       <Grid xs={12} item>
         <Hidden smDown>
-          <img
-            src="homeImage.png"
-            style={{
-              position: "relative",
-              bottom: 120,
-              width: "100vw",
-              marginBottom: -120,
-            }}
-          />
+          <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
+            <img
+              src="homeImage.png"
+              style={{
+                position: "relative",
+                bottom: 120,
+                width: "100vw",
+                marginBottom: -120,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                marginLeft: "30%",
+              }}
+            >
+              <div style={{ position: "relative", display: "flex", alignItems: "flex-end", flexDirection: "column" }}>
+                <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true}>
+                  <img src="titleDark.png" />
+                </ScrollAnimation>
+
+                <Link to={`/treatments/wrinkle-reduction-botox`} smooth style={{ textDecoration: "none" }}>
+                  <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "right", marginTop: 0, width: 100 }}>
+                    <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={200}>
+                      More
+                      <ChevronRight style={{ marginLeft: 10 }} />
+                    </ScrollAnimation>
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </div>
         </Hidden>
         <Hidden mdUp>
           <img
@@ -31,6 +55,9 @@ export const Home = () => {
               width: "100vw",
             }}
           />
+          <ScrollAnimation animateIn="animate__fadeInDown" duration={1} animateOnce={true}>
+            <img src="titleDark.png" style={{ width: "90vw", marginLeft: "5vw" }} />
+          </ScrollAnimation>
         </Hidden>
       </Grid>
       <Grid item container sm={11} md={8}>
@@ -45,18 +72,32 @@ export const Home = () => {
               TREATMENTS
             </p>
           </div>
-          <div
-            style={{
-              position: "absolute",
-              right: "20vw",
-              height: 50,
-              width: "100vw",
-              top: "30%",
-              background:
-                "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
-              zIndex: 0,
-            }}
-          ></div>
+          <Hidden smDown>
+            <div
+              style={{
+                position: "absolute",
+                right: "20vw",
+                height: 50,
+                width: "100vw",
+                top: "30%",
+                background:
+                  "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
+                zIndex: 0,
+              }}
+            ></div>
+          </Hidden>
+          <Hidden mdUp>
+            <div
+              style={{
+                position: "absolute",
+                height: 50,
+                width: "100vw",
+                top: "30%",
+                background: " rgba(67,168,215,1)",
+                zIndex: 0,
+              }}
+            ></div>
+          </Hidden>
         </Grid>
 
         <Grid item xs={12}>

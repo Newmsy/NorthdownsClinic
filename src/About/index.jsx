@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Box, Grid } from "@material-ui/core";
+import { makeStyles, Box, Grid, Hidden } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as People } from "../Assets/people.svg";
@@ -29,18 +29,33 @@ export const About = () => {
                 </ScrollAnimation>
               </p>
             </div>
-            <div
-              style={{
-                position: "absolute",
-                right: "20vw",
-                height: 50,
-                width: "100vw",
-                top: "45%",
-                background:
-                  "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 12%, rgba(255,255,255,0.7567401960784313) 100%)",
-                zIndex: 0,
-              }}
-            ></div>
+            <Hidden smDown>
+              <div
+                style={{
+                  position: "absolute",
+                  right: "20vw",
+                  height: 50,
+                  width: "100vw",
+                  top: "45%",
+                  background:
+                    "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
+                  zIndex: 0,
+                }}
+              ></div>
+            </Hidden>
+            <Hidden mdUp>
+              <div
+                style={{
+                  position: "absolute",
+                  height: 50,
+                  width: "100vw",
+                  top: "45%",
+                  left: 0,
+                  background: " rgba(67,168,215,1)",
+                  zIndex: 0,
+                }}
+              ></div>
+            </Hidden>
           </Grid>
 
           <Grid item container xs={12} style={{ alignItems: "flex-start", justifyContent: "center" }}>
@@ -175,18 +190,32 @@ export const About = () => {
                   </ScrollAnimation>
                 </p>
               </div>
-              <div
-                style={{
-                  position: "absolute",
-                  right: "20vw",
-                  height: 50,
-                  width: "100vw",
-                  top: "45%",
-                  background:
-                    "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 12%, rgba(255,255,255,0.7567401960784313) 100%)",
-                  zIndex: 0,
-                }}
-              ></div>
+              <Hidden smDown>
+                <div
+                  style={{
+                    position: "absolute",
+                    right: "20vw",
+                    height: 50,
+                    width: "100vw",
+                    top: "45%",
+                    background:
+                      "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
+                    zIndex: 0,
+                  }}
+                ></div>
+              </Hidden>
+              <Hidden mdUp>
+                <div
+                  style={{
+                    position: "absolute",
+                    height: 50,
+                    width: "100vw",
+                    top: "45%",
+                    background: " rgba(67,168,215,1)",
+                    zIndex: 0,
+                  }}
+                ></div>
+              </Hidden>
             </Grid>
           </Grid>
           <Grid

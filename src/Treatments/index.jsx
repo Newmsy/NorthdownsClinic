@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Box, Grid } from "@material-ui/core";
+import { makeStyles, Box, Grid, Hidden } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as ChevronRight } from "../Assets/chevron-right.svg";
@@ -29,18 +29,32 @@ export const Treatments = () => {
               TREATMENTS
             </p>
           </div>
-          <div
-            style={{
-              position: "absolute",
-              right: "20vw",
-              height: 50,
-              width: "100vw",
-              top: "30%",
-              background:
-                "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 30%, rgba(255,255,255,0.7567401960784313) 100%)",
-              zIndex: 0,
-            }}
-          ></div>
+          <Hidden smDown>
+            <div
+              style={{
+                position: "absolute",
+                right: "20vw",
+                height: 50,
+                width: "100vw",
+                top: "30%",
+                background:
+                  "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
+                zIndex: 0,
+              }}
+            ></div>
+          </Hidden>
+          <Hidden mdUp>
+            <div
+              style={{
+                position: "absolute",
+                height: 50,
+                width: "100vw",
+                top: "30%",
+                background: " rgba(67,168,215,1)",
+                zIndex: 0,
+              }}
+            ></div>
+          </Hidden>
         </Grid>
 
         <Grid item xs={12} md={5} className={styles.boxItem} onClick={() => onNavigate("treatments/wrinkle-reduction-botox")}>

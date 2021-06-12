@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Box, Grid, Accordion, AccordionDetails, AccordionSummary } from "@material-ui/core";
+import { makeStyles, Box, Grid, Hidden } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as ChevronRight } from "../Assets/chevron-right.svg";
@@ -26,18 +26,32 @@ export const Hyperhidrosis = () => {
                 HYPERHIDROSIS
               </p>
             </div>
-            <div
-              style={{
-                position: "absolute",
-                right: "20vw",
-                height: 50,
-                width: "100vw",
-                top: "30%",
-                background:
-                  "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
-                zIndex: 0,
-              }}
-            ></div>
+            <Hidden smDown>
+              <div
+                style={{
+                  position: "absolute",
+                  right: "20vw",
+                  height: 50,
+                  width: "100vw",
+                  top: "30%",
+                  background:
+                    "linear-gradient(90deg, rgba(67,168,215,1) 0%, rgba(67,168,215,1) 40%, rgba(255,255,255,0.7567401960784313) 100%)",
+                  zIndex: 0,
+                }}
+              ></div>
+            </Hidden>
+            <Hidden mdUp>
+              <div
+                style={{
+                  position: "absolute",
+                  height: 50,
+                  width: "100vw",
+                  top: "30%",
+                  background: " rgba(67,168,215,1)",
+                  zIndex: 0,
+                }}
+              ></div>
+            </Hidden>
           </Grid>
           <Grid item xs={6}>
             <img src="/hyperhidrosis-treatment.jpg" style={{ width: "100%" }} />
@@ -73,14 +87,12 @@ export const Hyperhidrosis = () => {
             {details.map((detail, index) => {
               return (
                 <Grid item xs={6}>
-                  <ScrollAnimation animateIn="animate__fadeInDown" duration={1} animateOnce={true} delay={index % 2 === 0 ? 0 : 100}>
-                    <Link to={`/treatments/hyperhidrosis-treatment#${index}`} smooth style={{ textDecoration: "none" }}>
-                      <p className={textStyles.contentTextFAQ} style={{ fontSize: 26 }}>
-                        <ChevronRight style={{ marginRight: 10 }} />
-                        {detail.title}
-                      </p>
-                    </Link>
-                  </ScrollAnimation>
+                  <Link to={`/treatments/hyperhidrosis-treatment#${index}`} smooth style={{ textDecoration: "none" }}>
+                    <p className={textStyles.contentTextFAQ} style={{ fontSize: 26 }}>
+                      <ChevronRight style={{ marginRight: 10 }} />
+                      {detail.title}
+                    </p>
+                  </Link>
                 </Grid>
               );
             })}
