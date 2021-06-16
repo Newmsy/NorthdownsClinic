@@ -13,7 +13,7 @@ export const Hyperhidrosis = () => {
 
   return (
     <Grid container xs={12} justify={"center"}>
-      <Grid xs={8} item container className={styles.mainGrid}>
+      <Grid xs={12} md={8} item container className={styles.mainGrid}>
         <Grid item container xs={12}>
           <Grid item xs={12} style={{ position: "relative", height: 100 }}>
             <div
@@ -53,11 +53,11 @@ export const Hyperhidrosis = () => {
               ></div>
             </Hidden>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <img src="/hyperhidrosis-treatment.jpg" style={{ width: "100%" }} />
           </Grid>
           <Grid item xs={1} />
-          <Grid item xs={5}>
+          <Grid item xs={10} md={5}>
             <p className={textStyles.contentText} style={{ fontSize: 20 }}>
               Northdowns Clinic in is a specialist cosmetic treatment clinic which offers hyperhidrosis (excessive sweating) treatment in
               Kent with fast results. We provide competitive, expertise and a wealth of medical knowledge for treating problems of excessive
@@ -77,18 +77,18 @@ export const Hyperhidrosis = () => {
         }}
         justifyContent="center"
       >
-        <Grid item container xs={8}>
+        <Grid item container xs={10} md={8}>
           <ScrollAnimation animateIn="animate__zoomIn" duration={1} animateOnce={true}>
             <Grid item xs={12} style={{ marginBottom: 0 }}>
               <p className={textStyles.blueTitle}>FREQUENTLY ASKED QUESTIONS</p>
             </Grid>{" "}
           </ScrollAnimation>
-          <Grid item container xs={12} style={{ marginBottom: 50 }}>
+          <Grid item container xs={12} style={{ marginBottom: 50, justifyContent: "center" }}>
             {details.map((detail, index) => {
               return (
-                <Grid item xs={6}>
+                <Grid item xs={10} md={6}>
                   <Link to={`/treatments/hyperhidrosis-treatment#${index}`} smooth style={{ textDecoration: "none" }}>
-                    <p className={textStyles.contentTextFAQ} style={{ fontSize: 26 }}>
+                    <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "left" }}>
                       <ChevronRight style={{ marginRight: 10 }} />
                       {detail.title}
                     </p>
@@ -109,7 +109,7 @@ export const Hyperhidrosis = () => {
         }}
         justifyContent="center"
       >
-        <Grid item container xs={8}>
+        <Grid item container xs={12} md={8}>
           {details.map((detail, index) => (
             <FAQs title={detail.title} body={detail.body} index={index} />
           ))}
@@ -134,7 +134,7 @@ const FAQs = ({ title, body, index }) => {
         paddingBottom: 30,
       }}
     >
-      <Grid item xs={12} style={{ magrinBottom: 40 }}>
+      <Grid item xs={10} style={{ magrinBottom: 40 }}>
         <ScrollAnimation animateIn="animate__fadeInLeft" duration={1} animateOnce={true}>
           <p className={textStyles.blueTitle} id={`${index}`}>
             {title}

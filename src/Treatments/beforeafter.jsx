@@ -10,8 +10,8 @@ export const BeforeAfter = () => {
 
   return (
     <Grid container xs={12} justify={"center"}>
-      <Grid xs={8} item container className={styles.mainGrid} spacing={6}>
-        <Grid xs={12}>
+      <Grid xs={12} md={8} item container className={styles.mainGrid} spacing={6}>
+        <Grid xs={10} md={12}>
           <p className={textStyles.blueTitle}>EXAMPLES OF OUR TREATMENTS</p>
         </Grid>
         <Grid xs={12} sm={6} item>
@@ -43,6 +43,7 @@ export const BeforeAfter = () => {
 const useStyles = makeStyles(() => ({
   mainGrid: {
     marginTop: 30,
+    justifyContent: "center",
   },
   image: {
     width: "100%",

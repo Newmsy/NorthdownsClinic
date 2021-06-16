@@ -13,7 +13,7 @@ export const Dermal = () => {
 
   return (
     <Grid container xs={12} justify={"center"}>
-      <Grid xs={8} item container className={styles.mainGrid}>
+      <Grid xs={12} md={8} item container className={styles.mainGrid}>
         <Grid item container xs={12}>
           <Grid item xs={12} style={{ position: "relative", height: 100 }}>
             <div
@@ -53,11 +53,11 @@ export const Dermal = () => {
               ></div>
             </Hidden>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <img src="/dermal-filler-injections.jpg" style={{ width: "100%" }} />
           </Grid>
           <Grid item xs={1} />
-          <Grid item xs={5}>
+          <Grid item xs={10} md={5}>
             <p className={textStyles.contentText} style={{ fontSize: 20 }}>
               As your skin ages, it loses the collagen that helps shape and support it. Natural lines and wrinkles deepen. Sun exposure,
               smoking, air pollution and even stress can all age your appearance. The face can also begin to lose volume giving sunken
@@ -77,7 +77,7 @@ export const Dermal = () => {
         }}
         justifyContent="center"
       >
-        <Grid item container xs={8}>
+        <Grid item container xs={10} md={8}>
           <ScrollAnimation animateIn="animate__zoomIn" duration={1} animateOnce={true}>
             <Grid item xs={12} style={{ marginBottom: 0 }}>
               <p className={textStyles.blueTitle}>FREQUENTLY ASKED QUESTIONS</p>
@@ -86,10 +86,10 @@ export const Dermal = () => {
           <Grid item container xs={12} style={{ marginBottom: 50 }}>
             {details.map((detail, index) => {
               return (
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                   <Link to={`/treatments/dermal-fillers#${index}`} smooth style={{ textDecoration: "none" }}>
-                    <p className={textStyles.contentTextFAQ} style={{ fontSize: 26 }}>
-                      <ChevronRight style={{ marginRight: 10 }} />
+                    <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "left" }}>
+                      <ChevronRight style={{ marginRight: 10, textAlign: "left" }} />
                       {detail.title}
                     </p>
                   </Link>
@@ -109,7 +109,7 @@ export const Dermal = () => {
         }}
         justifyContent="center"
       >
-        <Grid item container xs={8}>
+        <Grid item container xs={11} md={8}>
           {details.map((detail, index) => (
             <FAQs title={detail.title} body={detail.body} index={index} />
           ))}

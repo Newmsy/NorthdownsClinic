@@ -13,7 +13,7 @@ export const Wrinkle = () => {
 
   return (
     <Grid container xs={12} justify={"center"}>
-      <Grid xs={8} item container className={styles.mainGrid}>
+      <Grid md={8} xs={12} item container className={styles.mainGrid}>
         <Grid item container xs={12}>
           <Grid item xs={12} style={{ position: "relative", height: 100 }}>
             <div
@@ -22,9 +22,11 @@ export const Wrinkle = () => {
                 zIndex: 5,
               }}
             >
-              <p className={textStyles.whiteTitle} style={{ zIndex: 5 }}>
-                WRINKLE REDUCTION INJECTIONS
-              </p>
+              <div className={styles.backgroundDiv}>
+                <p className={textStyles.whiteTitle} style={{ zIndex: 5 }}>
+                  WRINKLE REDUCTION INJECTIONS
+                </p>
+              </div>
             </div>
             <Hidden smDown>
               <div
@@ -53,11 +55,11 @@ export const Wrinkle = () => {
               ></div>
             </Hidden>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <img src="/wrinkle-reduction-injection.jpg" style={{ width: "100%" }} />
           </Grid>
           <Grid item xs={1} />
-          <Grid item xs={5}>
+          <Grid item xs={10} md={5}>
             <p className={textStyles.contentText} style={{ fontSize: 20 }}>
               The use of prescription only medication Botulinum toxin (known as Botox™) produces relaxation of the muscles that account for
               the wrinkles and lines seen in the frown, forehead and crow’s feet. It can safely restore a relaxed look.
@@ -80,7 +82,7 @@ export const Wrinkle = () => {
         }}
         justifyContent="center"
       >
-        <Grid item container xs={8}>
+        <Grid item container xs={11} md={8}>
           <ScrollAnimation animateIn="animate__zoomIn" duration={1} animateOnce={true}>
             <Grid item xs={12} style={{ marginBottom: 0 }}>
               <p className={textStyles.blueTitle}>FREQUENTLY ASKED QUESTIONS</p>
@@ -89,9 +91,9 @@ export const Wrinkle = () => {
           <Grid item container xs={12} style={{ marginBottom: 50 }}>
             {details.map((detail, index) => {
               return (
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>
                   <Link to={`/treatments/wrinkle-reduction-botox#${index}`} smooth style={{ textDecoration: "none" }}>
-                    <p className={textStyles.contentTextFAQ} style={{ fontSize: 26 }}>
+                    <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "left" }}>
                       <ChevronRight style={{ marginRight: 10 }} />
                       {detail.title}
                     </p>
@@ -112,7 +114,7 @@ export const Wrinkle = () => {
         }}
         justifyContent="center"
       >
-        <Grid item container xs={8}>
+        <Grid item container xs={12} md={8}>
           {details.map((detail, index) => (
             <FAQs title={detail.title} body={detail.body} index={index} />
           ))}
@@ -137,7 +139,7 @@ const FAQs = ({ title, body, index }) => {
         paddingBottom: 30,
       }}
     >
-      <Grid item xs={12} style={{ magrinBottom: 40 }}>
+      <Grid item xs={10} md={12} style={{ magrinBottom: 40 }}>
         <ScrollAnimation animateIn="animate__fadeInLeft" duration={1} animateOnce={true}>
           <p className={textStyles.blueTitle} id={`${index}`}>
             {title}
@@ -311,7 +313,7 @@ const details = [
   },
 ];
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: 30,
     justifyContent: "center",
@@ -322,5 +324,10 @@ const useStyles = makeStyles(() => ({
   accordionDetails: {
     backgroundColor: "#fff",
     border: "1px solid rgb(138, 138, 138)",
+  },
+  backgroundDiv: {
+    [theme.breakpoints.down("sm")]: {
+      backgroundColor: "rgba(67, 168, 215, 1)",
+    },
   },
 }));

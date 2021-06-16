@@ -25,8 +25,6 @@ export const Layout = (props) => {
     setPath(loc.pathname);
   });
 
-  console.log(path.split("/"));
-
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
       setIsVisible(true);
@@ -44,11 +42,12 @@ export const Layout = (props) => {
       <Toolbar className={styles.appBar}>
         <Grid container xs={12}>
           <Grid item xs={0} lg={1}></Grid>
-          <Grid item md={2} sm={4} xs={6}>
-            <img src="/logo.png" alt="logo" style={{ width: "100%" }} />
+          <Grid item md={2} sm={3} xs={6}>
+            <img src="/logo.png" alt="logo" style={{ width: "100%", maxHeight: 90, maxWidth: 274 }} />
           </Grid>
+          <Grid item xs={0} lg={1}></Grid>
           <Hidden smDown>
-            <Grid item container lg={7} md={10} sm={12} style={{ justifyContent: "center" }}>
+            <Grid item container xl={6} lg={7} md={9} style={{ justifyContent: "flex-start" }}>
               <Grid item className={styles.barText} onClick={() => visit("/")}>
                 Home
                 {path === "/" && <ChevronDown style={{ transform: "scale(1.5, 1.5)" }} />}
@@ -74,7 +73,7 @@ export const Layout = (props) => {
                 id="demo-simple-select"
                 value={`/${path.split("/")[1]}`}
                 onChange={handleVisit}
-                style={{ width: "50%", maxWidth: 250, textAlign: "center" }}
+                style={{ width: "50%", maxWidth: 250, textAlign: "center", fontWeight: 100 }}
                 className={textStyles.contentText}
               >
                 <MenuItem value={"/"}>Home</MenuItem>
@@ -188,12 +187,13 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 0,
     position: "relative",
     //borderBottom: "2px solid rgba(78, 173, 113, 0.3)",
-    maxWidth: "100vw",
+
     margin: 0,
     padding: 0,
     [theme.breakpoints.down("sm")]: {
       position: "fixed",
-      backgroundColor: "rgba(255,255,255,1)",
+      backgroundColor: "rgba(240,240,240,0.92)",
+      width: "100vw",
     },
   },
   barText: {
@@ -201,7 +201,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 28,
     color: "rgba(100,100,100,1)",
     marginTop: 30,
-    marginLeft: 50,
+    marginLeft: 25,
+    marginRight: 25,
     fontWeight: 100,
     height: 55,
     position: "relative",
