@@ -36,7 +36,7 @@ export const Home = () => {
                   <img src="titleDark.png" />
                 </Fade>
 
-                <Link to={`/treatments/wrinkle-reduction-botox`} smooth style={{ textDecoration: "none" }}>
+                <Link to={`/treatments`} smooth style={{ textDecoration: "none" }}>
                   <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "right", marginTop: 0, width: 100 }}>
                     <ScrollAnimation animateIn="animate__fadeIn" duration={1} animateOnce={true} delay={200}>
                       More
@@ -50,7 +50,7 @@ export const Home = () => {
         </Hidden>
         <Hidden mdUp>
           <img
-            src="homeSmall.png"
+            src="HomeSmall.png"
             style={{
               width: "100vw",
             }}
