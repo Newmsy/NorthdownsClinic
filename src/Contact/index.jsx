@@ -75,6 +75,28 @@ export const Contact = () => {
                 </div>
 
                 <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%" }}>
+                  Len Valley Surgery
+                </p>
+                <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%" }}>
+                  Groom Way
+                </p>
+                <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%" }}>
+                  Lenham
+                </p>
+                <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%" }}>
+                  Kent ME17 2QF
+                </p>
+                <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%", marginTop: 20 }}>
+                  Telephone: <a href="tel:01622 8583415">01622 858341</a>
+                </p>
+                <p
+                  className={textStyles.contentText}
+                  style={{ textAlign: "left", margin: 2, width: "100%", marginTop: 20, marginBottom: 20 }}
+                >
+                  We can also see clients at:
+                </p>
+
+                <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%", marginBottom: 2 }}>
                   Northdowns Cosmetic Clinic
                 </p>
                 <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%" }}>
@@ -102,7 +124,7 @@ export const Contact = () => {
               </Grid>
               <Grid item xs={12} md={8}>
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2495.6846351737177!2d1.0783589157616247!3d51.28012387959843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47decbb56997ae8f%3A0x6d4152d240f66ff1!2sElite%20Beauty%20-%20Canterbury!5e0!3m2!1sen!2suk!4v1623503676413!5m2!1sen!2suk"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2497.9951482819793!2d0.7213225159759581!3d51.23758423821564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47df29bc44a800b5%3A0x29dc866bbb1606ae!2sThe%20Len%20Valley%20Practice!5e0!3m2!1sen!2suk!4v1637762678624!5m2!1sen!2suk"
                   width="100%"
                   height="450"
                   style={{ border: 0 }}
