@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles, Box, Grid, Hidden } from "@material-ui/core";
+import { makeStyles, Box, Grid, Hidden, Button, TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useTextStyles } from "../TextStyles/textStyles";
 import { ReactComponent as Location } from "../Assets/location.svg";
@@ -7,9 +7,52 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { HashLink as Link } from "react-router-hash-link";
 import ScrollAnimation from "react-animate-on-scroll";
 
+export const emailRegex =
+  /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
 export const Contact = () => {
   const textStyles = useTextStyles();
   const style = useStyles();
+  const [email, setEmail] = React.useState("");
+  const [name, setName] = React.useState("");
+  const [message, setMessage] = React.useState("");
+  const [errorState, setError] = React.useState("");
+  const [successState, setSuccess] = React.useState(false);
+  const [loadingState, setLoading] = React.useState(false);
+
+  const validateForm = React.useCallback(() => {
+    if (emailRegex.test(email) && message.length > 0 && name.length > 0) return true;
+    setError(true);
+    return false;
+  }, [email, message.length, name]);
+
+  const scriptCallback = React.useCallback(async () => {
+    if (!validateForm()) return;
+    setLoading(true);
+    var dataSend = {
+      dataReq: {
+        email: email,
+        message: message,
+        name: name,
+      },
+      fname: "uploadFilesToGoogleDrive",
+    }; //preapre info to send to API
+    if (dataSend.dataReq.email.length > 0 && dataSend.dataReq.message.length > 0 && dataSend.dataReq.name.length > 0) {
+      setError(false);
+      fetch(
+        "https://script.google.com/macros/s/AKfycbxtmBFuidlnFJDTNvJGLKlcL_HrDYmZyozAy2hS_0UwOVlu2U0Y8xFla98dKvmox2c/exec", //your AppsScript URL
+        { method: "POST", body: JSON.stringify(dataSend) }
+      ) //send to Api
+        .then((res) => res.json())
+        .then((a) => {
+          setLoading(false);
+          setSuccess(true);
+        })
+        .catch((e) => console.log(e));
+    } else {
+      setError(true);
+    }
+  }, [email, message, name, validateForm]);
   return (
     <Grid container xs={12} style={{ justifyContent: "center" }}>
       <Grid item container xs={12} md={8}>
@@ -67,6 +110,78 @@ export const Contact = () => {
                   alignItems: "flex-start",
                 }}
               >
+                {successState === true && (
+                  <Box sx={{ backgroundColor: "#fff", borderRadius: 5, padding: 10, paddingTop: 5 }}>
+                    <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "left" }}>
+                      Thank you for your contact submission.
+                    </p>
+                  </Box>
+                )}
+                {successState === false && (
+                  <Box display="flex" flexDirection="column" alignItems="center" style={{ width: "100%" }}>
+                    <Box display="flex" flexDirection="column" alignItems="center" style={{ width: "100%" }}>
+                      <TextField
+                        label={"Name"}
+                        id="custom-css-outlined-input"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        fullWidth
+                        style={{ marginTop: 10, marginBottom: 10 }}
+                      />
+
+                      <TextField
+                        label="Email"
+                        id="custom-css-outlined-input"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        fullWidth
+                        style={{ marginTop: 10, marginBottom: 10 }}
+                      />
+
+                      <TextField
+                        label={"Message"}
+                        id="custom-css-outlined-input"
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
+                        rows={5}
+                        multiline={true}
+                        fullWidth
+                        style={{ marginTop: 10, marginBottom: 10 }}
+                      />
+                    </Box>
+
+                    {loadingState === true && (
+                      <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "left" }}>
+                        Submitting...
+                      </p>
+                    )}
+                    {errorState === true && (
+                      <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "left" }}>
+                        Please fill in all the inputs before submitting.
+                      </p>
+                    )}
+                    {loadingState === false && (
+                      <Box>
+                        <Button
+                          onClick={() => scriptCallback()}
+                          style={{
+                            backgroundColor: "rgb(67, 168, 215)",
+                            borderRadius: 2,
+                            color: "#fff",
+                            marginTop: 2,
+                            width: 150,
+                            padding: 2,
+                            "&:hover": {
+                              backgroundColor: "rgba(67, 168, 215, 0.6);",
+                            },
+                          }}
+                        >
+                          Submit
+                        </Button>
+                      </Box>
+                    )}
+                  </Box>
+                )}
                 <div style={{ position: "relative" }}>
                   <p className={textStyles.contentTextFAQ} style={{ fontSize: 26, textAlign: "left" }}>
                     ADDRESS
