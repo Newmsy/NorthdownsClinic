@@ -89,7 +89,7 @@ export const Contact = () => {
                 <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%", marginTop: 20 }}>
                   Telephone: <a href="tel:01622 8583415">01622 858341</a>
                 </p>
-                <p
+                {/* <p
                   className={textStyles.contentText}
                   style={{ textAlign: "left", margin: 2, width: "100%", marginTop: 20, marginBottom: 20 }}
                 >
@@ -113,7 +113,7 @@ export const Contact = () => {
                 </p>
                 <p className={textStyles.contentText} style={{ textAlign: "left", margin: 2, width: "100%" }}>
                   <a href="elite-beauty-canterbury.co.uk/contact/">elite-beauty-canterbury.co.uk/contact/</a>
-                </p>
+                </p> */}
                 <p
                   className={textStyles.contentText}
                   style={{ textAlign: "left", margin: 2, width: "100%", marginTop: 40, marginBottom: 30 }}
