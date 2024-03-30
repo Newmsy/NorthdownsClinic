@@ -236,7 +236,7 @@ export const About = () => {
                   <b>Dr. Andrew Reed</b>
                 </p>
                 <p className={textStyles.contentTextNoBottom}>
-                  <b>BSc (Hons), MB BS, MRCGP, DRCOG, DFFP</b>
+                  <b>BSc (Hons), MB BS, FRCGP, DRCOG, DFFP</b>
                 </p>
                 <p className={textStyles.contentTextNoBottom}>
                   <b>GMC 4413099</b>
@@ -257,7 +257,9 @@ export const About = () => {
                   Anatomy Training continued at various hospitals, followed by specialising in General Practice after completion of his
                   vocational training scheme centred around Maidstone Hospital in Kent. He obtained a Distinction in his Membership of the
                   Royal College of General Practitioner postgraduate exams (MRCGP).
-                </p>
+                </p><p className={textStyles.contentText}>
+                  He has been appointed a fellow of the Royal College of General Practioners in November 2023.
+                  </p>
                 <p className={textStyles.contentText}>
                   Dr Reed is a full time Partner in a local practice, where he one of the GP trainers for the Kent, Surrey & Sussex Deanery,
                   training postgraduate doctors in general practice. He has various interests within the practice including minor surgery,
@@ -271,11 +273,6 @@ export const About = () => {
                   He has gained certification in the use of wrinkle free treatments and dermal filler following training from the Ascot
                   Cosmetic Clinic, highly regarded for their training and recently undergone advanced training in further techniques for
                   wrinkle free injections and dermal filler use.
-                </p>
-                <p className={textStyles.contentText}>
-                  Dr Reed is also a SaveFace accredited practitioner. Save Face is a national register of Accredited practitioners who
-                  provide non-surgical cosmetic. The Register is accredited by Professional Standards Authority and is recognised by the
-                  Government, The Department of Health, NHS England and The Care Quality Commission.
                 </p>
                 <p className={textStyles.contentText}>He has full membership with the Medical Defence Union (MDDUS).</p>
               </Grid>
